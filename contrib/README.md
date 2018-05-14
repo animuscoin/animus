@@ -26,7 +26,7 @@ Contains files used to package animusd/animus-qt
 for Debian-based Linux systems. If you compile animusd/animus-qt yourself, there are some useful files here.
 
 ### [Gitian-descriptors](/contrib/gitian-descriptors) ###
-Files used during the gitian build process. For more information about gitian, see the [the Bitcoin Core documentation repository](https://github.com/animus-core/docs).
+Files used during the gitian build process. For more information about gitian, see the [the Bitcoin Core documentation repository](https://github.com/animuscoin/docs).
 
 ### [Gitian-keys](/contrib/gitian-keys)
 PGP keys used for signing Bitcoin Core [Gitian release](/doc/release-process.md) results.

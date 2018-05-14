@@ -1,7 +1,7 @@
 Animus Core 0.13.2.1
 ===============================
 
-http://www.thefutureanimus.com/
+http://www.websiteunderprogress.org/
 
 What is Animus?
 ----------------
@@ -14,13 +14,14 @@ processed very quickly. Animus's blockchain uses the advanced NeoScrypt Proof-of
 secure the network. NeoScrypt is ASIC resistant and ensures a fair and stable return on investment
 for the miners.
 
-Additional information, wallets, specifications & roadmap: http://www.thefutureanimus.com/roadmap
+Additional information, wallets, specifications & roadmap: http://www.websiteunderprogress.org/roadmap
 
 - Name of Coin : ANS
 - Tiker : ANS
 - Algorithm: NeoScrypt
 - Block time: 120 seconds
-- Block reward: 2 ANS
+- Block reward 0-250: 1 ANS
+- Block reward 251- : 2 ANS
 - Masternode Collateral: 1000 ANS
 - POW/Masternode Split: 50/50%
 - Premine: 25 000 ANS
