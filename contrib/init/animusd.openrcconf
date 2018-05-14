@@ -1,0 +1,33 @@
+# /etc/conf.d/animusd: config file for /etc/init.d/animusd
+
+# Config file location
+#ANSD_CONFIGFILE="/etc/animus/animus.conf"
+
+# What directory to write pidfile to?  (created and owned by $ANSD_USER)
+#ANSD_PIDDIR="/var/run/animusd"
+
+# What filename to give the pidfile
+#ANSD_PIDFILE="${ANSD_PIDDIR}/animusd.pid"
+
+# Where to write animusd data (be mindful that the blockchain is large)
+#ANSD_DATADIR="/var/lib/animusd"
+
+# User and group to own animusd process
+#ANSD_USER="animus"
+#ANSD_GROUP="animus"
+
+# Path to animusd executable
+#ANSD_BIN="/usr/bin/animusd"
+
+# Nice value to run animusd under
+#ANSD_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#ANSD_OPTS=""
+
+# The timeout in seconds OpenRC will wait for animusd to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+ANSD_SIGTERM_TIMEOUT=60

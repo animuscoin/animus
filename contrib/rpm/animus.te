@@ -1,0 +1,81 @@
+policy_module(animus, 1.100.1)
+
+########################################
+#
+# Declarations
+#
+
+type animus_t;
+type animus_exec_t;
+init_daemon_domain(animus_t, animus_exec_t)
+
+permissive animus_t;
+
+type animus_initrc_exec_t;
+init_script_file(animus_initrc_exec_t)
+
+type animus_conf_t;
+files_type(animus_conf_t)
+
+type animus_var_lib_t;
+files_type(animus_var_lib_t)
+
+type animus_var_run_t;
+files_type(animus_var_run_t)
+
+type animus_port_t;
+corenet_port(animus_port_t)
+
+########################################
+#
+# animus local policy
+#
+allow animus_t self:process { fork };
+
+allow animus_t self:fifo_file rw_fifo_file_perms;
+allow animus_t self:unix_stream_socket create_stream_socket_perms;
+
+manage_dirs_pattern(animus_t, animus_conf_t, animus_conf_t)
+manage_files_pattern(animus_t, animus_conf_t, animus_conf_t)
+
+manage_dirs_pattern(animus_t, animus_var_lib_t, animus_var_lib_t)
+manage_files_pattern(animus_t, animus_var_lib_t, animus_var_lib_t)
+files_var_lib_filetrans(animus_t, animus_var_lib_t, { dir file })
+
+manage_dirs_pattern(animus_t, animus_var_run_t, animus_var_run_t)
+manage_files_pattern(animus_t, animus_var_run_t, animus_var_run_t)
+
+sysnet_dns_name_resolve(animus_t)
+corenet_all_recvfrom_unlabeled(animus_t)
+
+allow animus_t self:tcp_socket create_stream_socket_perms;
+corenet_tcp_sendrecv_generic_if(animus_t)
+corenet_tcp_sendrecv_generic_node(animus_t)
+corenet_tcp_sendrecv_all_ports(animus_t)
+corenet_tcp_bind_generic_node(animus_t)
+
+gen_require(`
+    type animus_port_t;
+')
+allow animus_t animus_port_t:tcp_socket name_bind;
+
+gen_require(`
+    type animus_port_t;
+')
+allow animus_t animus_port_t:tcp_socket name_connect;
+
+domain_use_interactive_fds(animus_t)
+
+files_read_etc_files(animus_t)
+
+miscfiles_read_localization(animus_t)
+
+sysnet_dns_name_resolve(animus_t)
+
+allow animus_t animus_exec_t:file execute_no_trans;
+allow animus_t self:process setsched;
+corecmd_exec_ls(animus_t)
+corenet_tcp_connect_http_port(animus_t)
+dev_read_urand(animus_t)
+fs_getattr_xattr_fs(animus_t)
+kernel_read_system_state(animus_t)

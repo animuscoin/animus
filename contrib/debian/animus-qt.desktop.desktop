@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=Bitcoin Core
+Comment=Connect to the Bitcoin P2P Network
+Exec=animus-qt %u
+Terminal=false
+Type=Application
+Icon=animus128
+MimeType=x-scheme-handler/animus;
+Categories=Office;Finance;
+StartupWMClass=Bitcoin-qt
+Name[en_US]=animus-qt.desktop
